@@ -8,4 +8,8 @@
     <string name="no_results_icon">No results</string>
     <string name="refresh">Refresh</string>
     <string name="listen">Listen</string>
+    <string name="stop">Stop</string>
+    <string name="start">Start</string>
+    <string name="reload">Reload</string>
+    <string name="reloading">Reloading</string>
 </resources>
