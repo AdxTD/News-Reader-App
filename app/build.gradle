@@ -105,6 +105,9 @@ dependencies {
     implementation 'androidx.activity:activity-compose:1.8.2'
     implementation "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
 
+    // coil image library
+    implementation("io.coil-kt:coil-compose:2.6.0")
+
     // Compose Nav Destinations
     implementation 'io.github.raamcosta.compose-destinations:core:2.0.0-beta01'
     ksp 'io.github.raamcosta.compose-destinations:ksp:2.0.0-beta01'

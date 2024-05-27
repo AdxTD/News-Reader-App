@@ -1,5 +1,6 @@
 package com.germanautolabs.newsapp.feature_articles.presentation.article_listing.components
 
+import android.annotation.SuppressLint
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
@@ -46,10 +47,12 @@ import com.google.accompanist.swiperefresh.SwipeRefresh
 import com.google.accompanist.swiperefresh.rememberSwipeRefreshState
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.annotation.RootGraph
+import com.ramcosta.composedestinations.generated.destinations.ArticleDetailsScreenDestination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.launch
 
 
+@SuppressLint("UnusedMaterialScaffoldPaddingParameter")
 @Composable
 @Destination<RootGraph>(start = true)
 fun ArticleListingsScreen(
@@ -135,10 +138,9 @@ fun ArticleListingsScreen(
                                 .padding(10.dp)
                                 .clickable {
                                     article.id?.let { id ->
-                                        //TODO: Navigate to ArticleDetailsScreen
-                                        //                                    navigator.navigate(
-                                        //                                        ArticleDetailsScreenDestination(id)
-                                        //                                    )
+                                        navigator.navigate(
+                                            ArticleDetailsScreenDestination(id)
+                                        )
                                     }
 
                                 }
