@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'com.google.devtools.ksp' version '1.9.22-1.0.17'
 }
 
 android {
@@ -57,7 +58,6 @@ dependencies {
     implementation libs.androidx.ui
     implementation libs.androidx.ui.graphics
     implementation libs.androidx.ui.tooling.preview
-    implementation libs.androidx.material3
     androidTestImplementation libs.androidx.junit
     androidTestImplementation libs.androidx.espresso.core
     androidTestImplementation platform(libs.androidx.compose.bom)
@@ -95,4 +95,17 @@ dependencies {
     testImplementation "io.mockk:mockk:1.13.1"
     testImplementation 'app.cash.turbine:turbine:0.7.0'
     debugImplementation "androidx.compose.ui:ui-test-manifest:1.6.7"
+
+    // Compose dependencies
+    implementation "androidx.compose.material:material:$compose_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0"
+    implementation "androidx.compose.material:material-icons-extended:1.6.5"
+    implementation "com.google.accompanist:accompanist-flowlayout:0.17.0"
+    implementation 'androidx.paging:paging-compose:3.3.0-beta01'
+    implementation 'androidx.activity:activity-compose:1.8.2'
+    implementation "com.google.accompanist:accompanist-swiperefresh:0.24.2-alpha"
+
+    // Compose Nav Destinations
+    implementation 'io.github.raamcosta.compose-destinations:core:2.0.0-beta01'
+    ksp 'io.github.raamcosta.compose-destinations:ksp:2.0.0-beta01'
 }
