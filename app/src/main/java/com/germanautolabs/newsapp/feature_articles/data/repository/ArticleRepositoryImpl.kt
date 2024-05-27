@@ -30,7 +30,7 @@ class ArticleRepositoryImpl @Inject constructor(
         withContext(Dispatchers.IO) {
             flow {
                 emit(Resource.Loading(true))
-                val localListings = dao.getNews(searchQuery)
+                val localListings = dao.getArticles(searchQuery)
                 emit(Resource.Success(
                     data = localListings.map { it.toArticleListing() }
                 ))
@@ -59,13 +59,13 @@ class ArticleRepositoryImpl @Inject constructor(
                         emit(Resource.Error("Couldn't load data, msg: ${response.message}"))
                         return@flow
                     }
-                    dao.clearNews()
-                    dao.insertNews(
+                    dao.clearArticles()
+                    dao.insertArticles(
                         response.articles.map { it.toArticleEntity() }
                     )
                     emit(Resource.Success(
                         data = dao
-                            .getNews("")
+                            .getArticles("")
                             .map { it.toArticleListing() }
                     ))
                     emit(Resource.Loading(false))
@@ -77,7 +77,7 @@ class ArticleRepositoryImpl @Inject constructor(
 
         withContext(Dispatchers.IO) {
             try {
-                Resource.Success(dao.getArticleById(id).toArticleDetails())
+                Resource.Success(dao.getArticleById(id)?.toArticleDetails())
             } catch (exc: IOException) {
                 Resource.Error(
                     message = "Couldn't load data, msg: ${exc.message}"

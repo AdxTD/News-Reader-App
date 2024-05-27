@@ -9,12 +9,12 @@ import androidx.room.Query
 interface NewsDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertNews(
-        newsEntities: List<ArticleEntity>
+    suspend fun insertArticles(
+        articleEntities: List<ArticleEntity>
     )
 
     @Query("DELETE FROM articleentity")
-    suspend fun clearNews()
+    suspend fun clearArticles()
 
     @Query(
         """
@@ -24,8 +24,8 @@ interface NewsDao {
                 LOWER(:searchQuery) == LOWER(source)
         """
     )
-    suspend fun getNews(searchQuery: String): List<ArticleEntity>
+    suspend fun getArticles(searchQuery: String): List<ArticleEntity>
 
     @Query("SELECT * FROM articleentity WHERE id = :id")
-    suspend fun getArticleById(id: Int): ArticleEntity
+    suspend fun getArticleById(id: Int): ArticleEntity?
 }
