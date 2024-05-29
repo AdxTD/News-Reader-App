@@ -1,6 +1,7 @@
 package com.germanautolabs.newsapp.feature_articles.presentation.article_listing.components
 
 import android.Manifest
+import android.annotation.SuppressLint
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
@@ -66,6 +67,7 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.launch
 
 
+@SuppressLint("CoroutineCreationDuringComposition")
 @Composable
 @Destination<RootGraph>(start = true)
 fun ArticleListingsScreen(
