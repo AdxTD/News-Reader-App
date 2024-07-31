@@ -73,7 +73,8 @@ class ArticleListingsViewModel @Inject constructor(
                         result.data?.let { articleListings ->
                             state = state.copy(
                                 articles = articleListings,
-                                articlesOrder = articlesOrder
+                                articlesOrder = articlesOrder,
+                                error = ""
                             )
                         }
                     }

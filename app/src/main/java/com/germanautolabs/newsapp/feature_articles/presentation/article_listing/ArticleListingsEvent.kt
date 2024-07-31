@@ -7,5 +7,5 @@ sealed class ArticleListingsEvent {
     data object Refresh: ArticleListingsEvent()
     data class OnSearchQueryChange(val query: String): ArticleListingsEvent()
     data class Order(val articlesOrder: ArticlesOrder): ArticleListingsEvent()
-    object ToggleOrderSection: ArticleListingsEvent()
+    data object ToggleOrderSection: ArticleListingsEvent()
 }
